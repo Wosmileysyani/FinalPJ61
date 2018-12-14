@@ -1,0 +1,60 @@
+<app-content>
+  <br>
+  <div class="container">
+    <div class="col-md-10 " style="margin: 0 auto;widows: 100px;">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card spur-card">
+            <div class="card-header text-center">
+              <div class="spur-card-icon">
+                <div class="spur-card-title">
+                  <i class="fab fa-bitcoin"></i> บันทึกรายรับ-รายจ่าย
+                </div>
+              </div>
+            </div>
+            <div class="card-body ">
+              <form [formGroup]="savingForm" (ngSubmit)="onSubmit()">
+                <div class="form-row col-md-12">
+                  <div class="form-group col-md-6">
+                    <label>วันที่</label>
+                    <input type="date" class="form-control" formControlName="saveDate" [ngClass]="{ 'is-invalid': submitted && validate.saveDate.errors }">
+                    <div *ngIf="submitted && validate.saveDate.errors" class="invalid-feedback">
+                        <div *ngIf="validate.saveDate.errors.required">กรุณาเลือกประเภท</div>
+                      </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>ประเภท</label>
+                    <select formControlName="saveType" class="form-control" [ngClass]="{ 'is-invalid': submitted && validate.saveType.errors }">
+                      <div *ngIf="submitted && validate.saveType.errors" class="invalid-feedback">
+                        <div *ngIf="validate.saveType.errors.required">กรุณาเลือกประเภท</div>
+                      </div>
+                      <option value="0">รายรับ</option>
+                      <option value="1">รายจ่าย</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group col-md-12 ">
+                  <label>รายละเอียด</label>
+                  <input type="text" class="form-control" formControlName="saveDescrip" [ngClass]="{ 'is-invalid': submitted && validate.saveDescrip.errors }">
+                  <div *ngIf="submitted && validate.saveDescrip.errors" class="invalid-feedback">
+                    <div *ngIf="validate.saveDescrip.errors.required">กรุณากรอกข้อมูล</div>
+                  </div>
+                </div>
+                <div class="form-group col-md-12">
+                  <label>จำนวนเงิน</label>
+                  <input type="number" class="form-control" formControlName="saveAmount" [ngClass]="{ 'is-invalid': submitted && validate.saveAmount.errors }">
+                  <div *ngIf="submitted && validate.saveAmount.errors" class="invalid-feedback">
+                    <div *ngIf="validate.saveAmount.errors.required">กรุณากรอกข้อมูล</div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">บันทึก</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-content>

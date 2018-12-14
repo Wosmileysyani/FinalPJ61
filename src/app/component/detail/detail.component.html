@@ -1,0 +1,30 @@
+<app-content>
+    <br>
+    <div class="container">
+        <h3 class="text-center">รายละเอียดรายรับ-รายจ่ายทั้งหมด</h3>
+        <div class="form-group ht-tm-cat mt-3">
+            <div class="ht-tm-codeblock">
+                <table class="table table-hover table-striped ht-tm-element">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>วันที่</th>
+                            <th>รายละเอียด</th>
+                            <th>ประเภท</th>
+                            <th>จำนวนเงิน</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-hover" *ngFor="let item of Saving">
+                            <td>{{item.savedate}}</td>
+                            <td>{{item.saveDescrip}}</td>
+                            <td *ngIf="item.saveType===0" style="color:rgb(7, 224, 105)">รายรับ</td>
+                            <td *ngIf="item.saveType===1" style="color:red">รายจ่าย</td>
+                            <td>{{item.saveAmount}}</td>
+                        </tr>
+                        <tr></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</app-content>

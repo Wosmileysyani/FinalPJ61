@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="jumbotron mt-3" >
+      
+    <h1>Project Saving</h1>
+    <p class="lead">นางสาวญาณี วงค์ตันฮวด รหัสนักศึกษา 59123250124</p>
+  </div>
+  <div class="ht-tm-codeblock">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info ht-tm-element">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">SavingPJ</a>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+            <li class="nav-item " *ngIf='userlogin!==underfined&&userlogin.accRole===role.User'>
+                <a class="nav-link" [routerLink]="[ '/home' ]"routerLinkActive="active"><i class="fas fa-home"></i>
+                หน้าแรก</a>
+              </li>
+          <li class="nav-item " *ngIf='userlogin!==underfined&&userlogin.accRole===role.Admin'>
+            <a class="nav-link" [routerLink]="[ '/homesaving' ]" routerLinkActive="active"><i class="fas fa-coins"></i>
+              หน้าหลักรายรับ-รายจ่าย</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="[ '/home/create' ]" routerLinkActive="active"><i class="fas fa-coins"></i>
+              รายรับ-รายจ่าย</a>
+          </li>
+          <li class="nav-item">
+            <a (click)="onLogout()" class="nav-link" routerLinkActive="active"><i class="fas fa-sign-out-alt"></i>
+              ออกจากระบบ</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>

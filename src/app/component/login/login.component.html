@@ -1,0 +1,24 @@
+<div class="containner">
+  <div class="col-md-6 text-center " style="margin: 0 auto;widows: 100px;">
+    <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <img class="mb-4" src="assets/img/logo.png" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">ยินดีต้อนรับเข้าสู่ระบบ</h1>
+      <div class="form-group">
+        <input type="text" placeholder="Username" formControlName="AccUser" class="form-control form-control-sm"
+          [ngClass]="{ 'is-invalid': submitted && validate.AccUser.errors }" />
+        <div *ngIf="submitted && validate.AccUser.errors" class="invalid-feedback">
+          <div *ngIf="validate.AccUser.errors.required">กรุณากรอกข้อมูล</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Password" formControlName="AccPass" class="form-control form-control-sm"
+          [ngClass]="{ 'is-invalid': submitted && validate.AccPass.errors }" />
+        <div *ngIf="submitted && validate.AccPass.errors" class="invalid-feedback">
+          <div *ngIf="validate.AccPass.errors.required">กรุณากรอกข้อมูล</div>
+        </div>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">เข้าสู่ระบบ</button>
+      <button class="btn btn-lg btn-primary btn-block" type="button" [routerLink]="['/register']">สมัครสมาชิก</button>
+    </form>
+  </div>
+</div>

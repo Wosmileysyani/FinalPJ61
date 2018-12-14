@@ -1,0 +1,73 @@
+<div class="containner">
+  <div class="col-md-6 text-center " style="margin: 0 auto;widows: 100px;">
+    <form class="form-signin" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <img class="mb-4" src="assets/img/logo.png" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">สมัครสมาชิก</h1>
+      <label class="sr-only"></label>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label>ชื่อผุ้ใช้</label>
+          <input type="text" formControlName="AccUser" class="form-control" [ngClass]="{ 'is-invalid': submitted && validate.AccUser.errors }" />
+          <div *ngIf="submitted && validate.AccUser.errors" class="invalid-feedback">
+            <div *ngIf="validate.AccUser.errors.required">กรุณากรอกข้อมูล</div>
+            <div *ngIf="validate.AccUser.errors.pattern">ห้ามมีตัวอักษรพิเศษ</div>
+            <div *ngIf="validate.AccUser.errors.minlength">ความยาวไม่ตำกว่า 6 ตัวอักษร</div>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label>รหัสผ่าน</label>
+          <input type="text" formControlName="AccPass" class="form-control" [ngClass]="{ 'is-invalid': submitted && validate.AccPass.errors }" />
+          <div *ngIf="submitted && validate.AccPass.errors" class="invalid-feedback">
+            <div *ngIf="validate.AccPass.errors.required">กรุณากรอกข้อมูล</div>
+            <div *ngIf="validate.AccPass.errors.pattern">ห้ามมีตัวอักษรพิเศษ</div>
+            <div *ngIf="validate.AccPass.errors.minlength">ความยาวไม่ตำกว่า 6 ตัวอักษร</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label for="">คำนำหน้าชื่อ</label>
+          <select formControlName="AccInitailID" class="form-control" [ngClass]="{ 'is-invalid': submitted && validate.AccInitailID.errors }">
+            <div *ngIf="submitted && validate.AccInitailID.errors" class="invalid-feedback">
+              <div *ngIf="validate.AccInitailID.errors.required">กรุณาเลือกคำนำหน้าชื่อ</div>
+              <div *ngIf="validate.AccInitailID.errors.pattern">ห้ามมีตัวอักษรพิเศษ</div>
+            </div>
+            <option value="0">นาย</option>
+            <option value="1">นาง</option>
+            <option value="2">นางสาว</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="">ชื่อ</label>
+          <input type="text" formControlName="AccName" class="form-control" [ngClass]="{ 'is-invalid': submitted && validate.AccName.errors }">
+          <div *ngIf="submitted && validate.AccName.errors" class="invalid-feedback">
+            <div *ngIf="validate.AccName.errors.required">กรุณากรอกข้อมูล</div>
+            <div *ngIf="validate.AccName.errors.pattern">ห้ามมีตัวอักษรพิเศษ</div>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="">นามสกุล</label>
+          <input type="text" formControlName="AccLastname" class="form-control" [ngClass]="{ 'is-invalid': submitted && validate.AccLastname.errors }">
+          <div *ngIf="submitted && validate.AccLastname.errors" class="invalid-feedback">
+            <div *ngIf="validate.AccLastname.errors.required">กรุณากรอกข้อมูล</div>
+            <div *ngIf="validate.AccLastname.errors.pattern">ห้ามมีตัวอักษรพิเศษ</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-12">
+          <label for="">วันเกิด</label>
+          <input type="date" formControlName="AccDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && validate.AccDate.errors }">
+          <div *ngIf="submitted && validate.AccDate.errors" class="invalid-feedback">
+            <div *ngIf="validate.AccDate.errors.required">กรุณากรอกข้อมูล</div>
+            <div *ngIf="validate.AccDate.errors.pattern">ห้ามมีตัวอักษรพิเศษ</div>
+            <div *ngIf="validate.AccDate.errors.date">กรุณากรอกข้อมูลให้ถูกต้อง เช่น 13/06/1997</div>
+          </div>
+        </div>
+        
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">สมัครสมาชิก</button>
+      <button class="btn btn-lg btn-primary btn-block" type="button" [routerLink]="['/login']">เข้าสู่ระบบ</button>
+    </form>
+  </div>
+</div>

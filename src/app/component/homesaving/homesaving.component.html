@@ -1,0 +1,28 @@
+<app-content>
+    <div class="text-center">
+        <h3>บัญชีรายรับ-รายจ่ายทั้งหมด</h3>
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4" *ngFor="let item of account">
+                        <div class="card mb-4 shadow-sm" >
+                            <img class="card-img-top" style="height: 225px; width: 100%; display: block;" src="assets/img/user.png">
+                            <div class="card-body">
+                                <p>ชื่อผู้ใช้ :{{item.accUser}} รหัสผ่าน :{{item.accPass}}</p>
+                                <p>ชื่อ :{{item.initailName}}{{item.accName}} {{item.accLastname}}</p>
+                                <p>วันเกิด :{{item.date}} </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['/homesaving/datail',item.accUser]">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-content>
